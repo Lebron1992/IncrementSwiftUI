@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var store: Store
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("\(store.state.count)")
+            Button("Add") {
+                store.dispatch(.increment)
+            }
+        }
     }
 }
 
